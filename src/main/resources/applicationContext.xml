@@ -2,4 +2,21 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+   <!--<bean >  bean 组件，也是一种对象 ,定义bean 相当于在spring容器里面放了东西-->
+    <!-- 等价于new GregorianCalendar() -->
+    <bean id="c1"
+          class="java.util.GregorianCalendar">
+    </bean>
+    <!-- 等价于Calendar.getInstance 静态工厂方法 -->
+    <bean id="c2"
+          class="java.util.Calendar"
+          factory-method="getInstance">
+    </bean>
+    <!-- 调用对象的方法获取实例
+        Date date1 = c2.getTime(); 对象工厂方法	-->
+    <bean id="date1"
+          factory-bean="c2"
+          factory-method="getTime">
+    </bean>
+
 </beans>

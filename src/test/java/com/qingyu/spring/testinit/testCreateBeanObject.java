@@ -3,8 +3,6 @@ package com.qingyu.spring.testinit;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import java.util.Calendar;
-import java.util.Date;
 
 public class testCreateBeanObject {
     public static void main(String[] args) {
