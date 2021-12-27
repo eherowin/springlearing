@@ -20,6 +20,7 @@
     </bean>
     <!-- day03测试创建方式 -->
     <bean id="e1"
+          lazy-init="true"
           scope="singleton"
           init-method="init"
           destroy-method="mydestroy"
