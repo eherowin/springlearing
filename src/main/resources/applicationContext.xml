@@ -20,6 +20,9 @@
     </bean>
     <!-- day03测试创建方式 -->
     <bean id="e1"
-          class="com.qingyu.spring.scope.ExampleBean" scope="prototype">
+          scope="singleton"
+          init-method="init"
+          destroy-method="mydestroy"
+          class="com.qingyu.spring.scope.ExampleBean">
     </bean>
 </beans>
