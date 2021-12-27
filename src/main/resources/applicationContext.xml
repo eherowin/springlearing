@@ -25,10 +25,15 @@
           destroy-method="mydestroy"
           class="com.qingyu.spring.scope.ExampleBean">
     </bean>
-    <bean id="compute" class="com.qingyu.spring.set.Computer">
+    <bean id="computer" class="com.qingyu.spring.set.Computer">
         <!-- 信息的set 注入 -->
         <property name="cpu" value="i7"/>
         <property name="hdd" value="西部数据"/>
         <property name="mainbord" value="dell"/>
+    </bean>
+    <bean id="phone" class="com.qingyu.spring.constructor.Phone">
+        <!-- 构造器注入-->
+        <constructor-arg index="0" value="11A"></constructor-arg>
+        <constructor-arg index="1" value="256G"></constructor-arg>
     </bean>
 </beans>
