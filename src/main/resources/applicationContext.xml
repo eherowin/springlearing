@@ -21,9 +21,14 @@
     <!-- day03测试创建方式 -->
     <bean id="e1"
           lazy-init="true"
-          scope="singleton"
           init-method="init"
           destroy-method="mydestroy"
           class="com.qingyu.spring.scope.ExampleBean">
+    </bean>
+    <bean id="compute" class="com.qingyu.spring.set.Computer">
+        <!-- 信息的set 注入 -->
+        <property name="cpu" value="i7"/>
+        <property name="hdd" value="西部数据"/>
+        <property name="mainbord" value="dell"/>
     </bean>
 </beans>
