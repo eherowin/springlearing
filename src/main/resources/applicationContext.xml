@@ -2,7 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-   <!--<bean >  bean 组件，也是一种对象 ,定义bean 相当于在spring容器里面放了东西-->
+    <!--<bean >  bean 组件，也是一种对象 ,定义bean 相当于在spring容器里面放了东西-->
     <!-- 等价于new GregorianCalendar() -->
     <bean id="c1"
           class="java.util.GregorianCalendar">
@@ -18,5 +18,8 @@
           factory-bean="c2"
           factory-method="getTime">
     </bean>
-
+    <!-- day03测试创建方式 -->
+    <bean id="e1"
+          class="com.qingyu.spring.scope.ExampleBean" scope="prototype">
+    </bean>
 </beans>
