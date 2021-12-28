@@ -43,7 +43,7 @@
     </bean>
 
     <!-- Definition for textEditor bean -->
-    <bean id="textEditor" autowire="byName" class="com.qingyu.spring.autowire.byName.TextEditor">
+    <bean id="textEditor" autowire="byType" class="com.qingyu.spring.autowire.byName.TextEditor">
         <property name="name" value="Generic Text Editor" />
     </bean>
 
