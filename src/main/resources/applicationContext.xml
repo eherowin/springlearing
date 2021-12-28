@@ -43,8 +43,8 @@
     </bean>
 
     <!-- Definition for textEditor bean -->
-    <bean id="textEditor" autowire="byType" class="com.qingyu.spring.autowire.byName.TextEditor">
-        <property name="name" value="Generic Text Editor" />
+    <bean id="textEditor" autowire="constructor" class="com.qingyu.spring.autowire.byName.TextEditor">
+        <constructor-arg  value="Generic Text Editor" />
     </bean>
 
     <!-- Definition for spellChecker bean -->
