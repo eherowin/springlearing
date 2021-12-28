@@ -36,9 +36,18 @@
         <constructor-arg index="0" value="11A"></constructor-arg>
         <constructor-arg index="1" value="256G"></constructor-arg>
     </bean>
-    <bean id="student" class="com.qingyu.spring.setref.Student">
+    <bean id="student"  scope="singleton" class="com.qingyu.spring.setref.Student">
         <!-- 利用Set注入，建立对象与对象之间的关系 -->
         <property name="computer" ref="computer"/>
         <property name="phone" ref="phone"/>
+    </bean>
+
+    <!-- Definition for textEditor bean -->
+    <bean id="textEditor" autowire="byName" class="com.qingyu.spring.autowire.byName.TextEditor">
+        <property name="name" value="Generic Text Editor" />
+    </bean>
+
+    <!-- Definition for spellChecker bean -->
+    <bean id="spellChecker" class="com.qingyu.spring.autowire.byName.SpellChecker">
     </bean>
 </beans>
