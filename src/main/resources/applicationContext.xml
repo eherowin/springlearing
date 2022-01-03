@@ -50,4 +50,42 @@
     <!-- Definition for spellChecker bean -->
     <bean id="spellChecker" class="com.qingyu.spring.autowire.byName.SpellChecker">
     </bean>
+
+    <bean id="messageBean"  class="com.qingyu.spring.alltype.MessageBean">
+        <property name="name" value="令狐冲"></property>
+        <property name="remark">
+            <null/>
+        </property>
+        <property name="age" value="18"></property>
+        <property name="birth" value="2021-12-30"></property>
+        <property name="friends"  >
+            <!--List 注入 -->
+            <list>
+                <value>美大宝</value>
+                <value>Lean</value>
+                <value>胡阿小小</value>
+            </list>
+        </property>
+        <property name="cities">
+            <set>
+                <value>北京</value>
+                <value>上海</value>
+                <value>广州</value>
+                <value>深圳</value>
+            </set>
+        </property>
+        <property name="books">
+            <map>
+                <entry key="1001" value="精通git"></entry>
+                <entry key="1002" value="像高手一样发言"></entry>
+            </map>
+        </property>
+        <property name="db">
+            <props>
+                <prop key="username">root</prop>
+                <prop key="password">123456</prop>
+                <prop key="driver">com.mysql.jdbc.Driver</prop>
+            </props>
+        </property>
+    </bean>
 </beans>
