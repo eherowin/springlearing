@@ -14,14 +14,6 @@ public class Emp {
     @Autowired//注入工位对象
     private Cubicle cubicle;
 
-    public void setEc(Computer ec) {
-        this.ec = ec;
-    }
-
-    public void setCubicle(Cubicle cubicle) {
-        this.cubicle = cubicle;
-    }
-
     public void show(){
         System.out.println("新进一名员工");
         ec.show();
