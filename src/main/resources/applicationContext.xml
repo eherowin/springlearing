@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+	   http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd">
     <!--<bean >  bean 组件，也是一种对象 ,定义bean 相当于在spring容器里面放了东西-->
     <!-- 等价于new GregorianCalendar() -->
     <bean id="c1"
@@ -36,7 +40,7 @@
         <constructor-arg index="0" value="11A"></constructor-arg>
         <constructor-arg index="1" value="256G"></constructor-arg>
     </bean>
-    <bean id="student"  scope="singleton" class="com.qingyu.spring.setref.Student">
+    <bean id="student" scope="singleton" class="com.qingyu.spring.setref.Student">
         <!-- 利用Set注入，建立对象与对象之间的关系 -->
         <property name="computer" ref="computer"/>
         <property name="phone" ref="phone"/>
@@ -44,21 +48,21 @@
 
     <!-- Definition for textEditor bean -->
     <bean id="textEditor" autowire="constructor" class="com.qingyu.spring.autowire.byName.TextEditor">
-        <constructor-arg  value="Generic Text Editor" />
+        <constructor-arg value="Generic Text Editor"/>
     </bean>
 
     <!-- Definition for spellChecker bean -->
     <bean id="spellChecker" class="com.qingyu.spring.autowire.byName.SpellChecker">
     </bean>
 
-    <bean id="messageBean"  class="com.qingyu.spring.alltype.MessageBean">
+    <bean id="messageBean" class="com.qingyu.spring.alltype.MessageBean">
         <property name="name" value="令狐冲"></property>
         <property name="remark">
             <null/>
         </property>
         <property name="age" value="18"></property>
         <property name="birth" value="2021-12-30"></property>
-        <property name="friends"  >
+        <property name="friends">
             <!--List 注入 -->
             <list>
                 <value>美大宝</value>
@@ -88,4 +92,39 @@
             </props>
         </property>
     </bean>
+
+    <bean id="messageUtilBean" class="com.qingyu.spring.alltype.MessageUtilBean">
+        <property name="name" value="#{dbParams.user}"></property>
+        <property name="age" value="#{messageBean.age}"></property>
+        <property name="friends" ref="someList"></property>
+        <property name="books" ref="somemap"></property>
+        <property name="db" ref="dbParams"></property>
+        <property name="cities" ref="someSet"></property>
+    </bean>
+    <!-- 外部定义 复用-->
+    <util:list id="someList">
+        <value>美大宝</value>
+        <value>Lean</value>
+        <value>胡阿小小</value>
+    </util:list>
+    <util:set id="someSet">
+        <value>北京</value>
+        <value>上海</value>
+        <value>广州</value>
+        <value>深圳</value>
+    </util:set>
+    <util:map id="somemap">
+        <entry key="1001" value="精通git"></entry>
+        <entry key="1002" value="像高手一样发言"></entry>
+    </util:map>
+
+    <util:properties id="somedb">
+        <prop key="username">root</prop>
+        <prop key="password">123456</prop>
+        <prop key="driver">com.mysql.jdbc.Driver</prop>
+    </util:properties>
+
+    <util:properties id="dbParams" location="db.properties">
+    </util:properties>
+
 </beans>
