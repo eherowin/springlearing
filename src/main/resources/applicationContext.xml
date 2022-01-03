@@ -2,10 +2,13 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
 	   http://www.springframework.org/schema/util
-       http://www.springframework.org/schema/util/spring-util.xsd">
+       http://www.springframework.org/schema/util/spring-util.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
     <!--<bean >  bean 组件，也是一种对象 ,定义bean 相当于在spring容器里面放了东西-->
     <!-- 等价于new GregorianCalendar() -->
     <bean id="c1"
@@ -127,5 +130,6 @@
 
     <util:properties id="dbParams" location="db.properties">
     </util:properties>
-
+    <!-- 开启组件扫描 -->
+    <context:component-scan base-package="com.qingyu.bean"></context:component-scan>
 </beans>
