@@ -119,9 +119,10 @@
     </util:map>
 
     <util:properties id="somedb">
-        <prop key="username">root</prop>
-        <prop key="password">123456</prop>
-        <prop key="driver">com.mysql.jdbc.Driver</prop>
+        <prop key="username">#{dbParams.user}</prop>
+        <prop key="password">#{dbParams.password}</prop>
+        <prop key="driver">#{dbParams.driver}</prop>
+        <prop key="url">#{dbParams.url}</prop>
     </util:properties>
 
     <util:properties id="dbParams" location="db.properties">
