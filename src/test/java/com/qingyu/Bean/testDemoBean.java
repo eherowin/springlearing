@@ -1,6 +1,7 @@
 package com.qingyu.Bean;
 
 import com.qingyu.bean.DemoBean;
+import com.qingyu.bean.DemoBean1;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -9,6 +10,5 @@ public class testDemoBean {
         ApplicationContext ac =new ClassPathXmlApplicationContext("applicationContext.xml");
         DemoBean demoBean=  ac.getBean("demoBean", DemoBean.class);
         demoBean.execute();
-
     }
 }
